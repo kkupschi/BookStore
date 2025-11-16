@@ -1,9 +1,48 @@
-body {
-    background: #0d1c24;
-    color: white;
-    font-family: Arial;
+* {
+    box-sizing: border-box;
 }
 
+body {
+    margin: 0;
+    padding: 10px;
+    background: radial-gradient(circle at 50% -10%, #0f2c38, #081820 60%);
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Überschrift */
+h1 {
+    text-align: center;
+    margin: 10px 0 15px;
+}
+
+/* Container für alle Bücher */
+#bookList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Buchkarte */
+.card {
+    background: #133040;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 12px;
+    border: 1px solid #0f3a49;
+    box-shadow: 0 6px 16px #0006;
+    width: 100%;
+    max-width: 340px;
+}
+
+/* Titel */
+.card h2 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 18px;
+}
+
+/* kleines Buchbild */
 .cover {
     width: 80px;
     height: 110px;
@@ -12,10 +51,28 @@ body {
     margin-bottom: 10px;
 }
 
+/* Likes + Herz */
+.heart {
+    cursor: pointer;
+    font-size: 22px;
+    margin-left: 8px;
+    color: #ffffff;
+    transition: 0.2s;
+}
+
+.heart.liked {
+    color: #ff5a5a;
+    text-shadow: 0 0 6px #ff5a5a;
+}
+
 /* Kommentarbereich */
 .comments h3 {
     margin-top: 10px;
     margin-bottom: 5px;
+}
+
+#bookList p {
+    margin: 3px 0;
 }
 
 .comments input {
@@ -26,7 +83,7 @@ body {
     border-radius: 6px;
     border: 1px solid #355c6b;
     background: #0c1f2a;
-    color: white;
+    color: #ffffff;
 }
 
 .comments button {
@@ -35,7 +92,7 @@ body {
     border-radius: 6px;
     border: none;
     background: #1a6a86;
-    color: white;
+    color: #ffffff;
     cursor: pointer;
 }
 
@@ -43,6 +100,7 @@ body {
     background: #2182a6;
 }
 
+/* Einzelner Kommentar */
 .comment p {
     margin: 3px 0;
 }
@@ -51,16 +109,13 @@ body {
     color: #78d2eb;
 }
 
+/* Responsive */
+@media (max-width: 320px) {
+    body {
+        padding: 6px;
+    }
 
-.heart {
-    cursor: pointer;
-    font-size: 22px;
-    margin-left: 8px;
-    color: white;
-    transition: 0.2s;
-}
-
-.heart.liked {
-    color: #ff5a5a;
-    text-shadow: 0 0 6px #ff5a5a;
+    .card {
+        margin: 8px auto;
+    }
 }

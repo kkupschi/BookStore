@@ -274,7 +274,6 @@ function saveBooksToStorage() {
     localStorage.setItem("bookstoreData", data);
 }
 
-
 function loadBooksFromStorage() {
     let data = localStorage.getItem("bookstoreData");
 
@@ -288,8 +287,6 @@ function loadBooksFromStorage() {
         books = parsed;
     }
 }
-
-
 
 loadBooksFromStorage();
 showBooks();
