@@ -24,14 +24,19 @@ body {
 }
 
 .topbar-logo-circle {
-    width: 26px;
-    height: 26px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     background: #0f5fba;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 14px;
+    overflow: hidden;
+}
+
+.topbar-logo-circle img {
+    width: 20px;
+    height: 20px;
 }
 
 .topbar-brand-main {
