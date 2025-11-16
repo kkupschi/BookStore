@@ -12,15 +12,15 @@ body {
 .topbar {
     background: #03171f;
     border-bottom: 1px solid #062733;
-    padding: 8px 12px;
+    padding: 14px 20px;
 }
 
 .topbar-inner {
-    max-width: 900px;
+    max-width: 1000px;
     margin: 0 auto;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
 }
 
 .topbar-logo-circle {
@@ -41,13 +41,15 @@ body {
 
 .topbar-brand-main {
     font-weight: bold;
-    font-size: 18px;
-    color: #ffffff;
+    font-size: 22px;
 }
 
 .topbar-brand-sub {
-    font-size: 13px;
-    color: #9bc2d3;
+    font-size: 15px;
+}
+
+.brand-red {
+    color: #e74c3c;
 }
 
 /* Inhalt */
