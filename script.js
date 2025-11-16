@@ -221,6 +221,8 @@ function toggleLike(index) {
 
     countEl.innerText = book.likes;
     heartEl.classList.toggle("liked");
+
+    saveBooksToStorage();
 }
 
 function renderComments(index) {
@@ -249,6 +251,8 @@ function addComment(index) {
     books[index].comments.push(newComment);
     input.value = "";
     renderComments(index);
+
+    saveBooksToStorage();
 }
 
 function escapeHtml(text) {
@@ -265,5 +269,27 @@ function formatPrice(price) {
     return fixed.replace(".", ",") + " €";
 }
 
+function saveBooksToStorage() {
+    let data = JSON.stringify(books);
+    localStorage.setItem("bookstoreData", data);
+}
 
+
+function loadBooksFromStorage() {
+    let data = localStorage.getItem("bookstoreData");
+
+    if (!data) {
+        return;
+    }
+
+    let parsed = JSON.parse(data);
+
+    if (Array.isArray(parsed)) {
+        books = parsed;
+    }
+}
+
+
+
+loadBooksFromStorage();
 showBooks();
