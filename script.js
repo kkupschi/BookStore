@@ -190,8 +190,11 @@ function showBooks() {
 function createBookHtml(book, index) {
     let html = '<div class="card">';
     html += '<h2>' + book.name + '</h2>';
+    html += '<div class="cover"></div>';
     html += '<p>Author: ' + book.author + '</p>';
-    html += '<p>Preis: ' + book.price + ' €</p>';
+    html += '<p>Jahr: ' + book.publishedYear + '</p>';
+    html += '<p>Genre: ' + book.genre + '</p>';
+    html += '<p>Preis: ' + formatPrice(book.price) + '</p>';
     html += '<p>Likes: <span id="likeCount-' + index + '">' + book.likes + '</span>';
     html += ' <span id="heart-' + index + '" class="heart ' + (book.liked ? 'liked' : '') + '"';
     html += ' onclick="toggleLike(' + index + ')">❤</span></p>';
@@ -256,5 +259,11 @@ function escapeHtml(text) {
         .replaceAll('"', "&quot;")
         .replaceAll("'", "&#039;");
 }
+
+function formatPrice(price) {
+    let fixed = Number(price).toFixed(2);
+    return fixed.replace(".", ",") + " €";
+}
+
 
 showBooks();
