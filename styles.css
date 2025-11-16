@@ -1,4 +1,3 @@
-/* === Grundlayout === */
 * {
     box-sizing: border-box;
 }
@@ -10,7 +9,6 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-/* === Topbar wie im Screenshot === */
 .topbar {
     background: #03171f;
     border-bottom: 1px solid #062733;
@@ -47,7 +45,7 @@ body {
     color: #9bc2d3;
 }
 
-/* === Inhalt === */
+/* Inhalt */
 main {
     max-width: 900px;
     margin: 24px auto;
@@ -55,12 +53,14 @@ main {
 }
 
 #bookList {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    justify-items: center;
+    width: 100%;
 }
 
-/* === Buchkarte === */
+/* Buchkarte */
 .card {
     width: 100%;
     max-width: 380px;
@@ -83,7 +83,7 @@ main {
     border-bottom: 2px solid #19789280;
 }
 
-/* Hero mit „Buchbild“ */
+/* Hero mit "Buchbild" */
 .card-hero {
     height: 150px;
     background: linear-gradient(180deg, #133e50, #0f2e3a);
@@ -151,7 +151,7 @@ main {
     text-shadow: 0 0 6px #ff5a5a;
 }
 
-/* Meta-Daten (Author / Jahr / Genre) */
+/* Meta-Daten (Author, Jahr, Genre) */
 .meta {
     font-size: 14px;
 }
@@ -229,7 +229,7 @@ main {
     background: #2182a6;
 }
 
-/* Scrollbar (optional, nur Chrome / Edge) */
+/* Scrollbar */
 .comment-list::-webkit-scrollbar {
     width: 5px;
 }
@@ -239,7 +239,7 @@ main {
     border-radius: 5px;
 }
 
-/* Keine horizontale Scrollbar bei kleinen Screens */
+/* Responsive */
 @media (max-width: 320px) {
     main {
         padding: 0 6px 14px;
