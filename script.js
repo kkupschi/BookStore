@@ -189,20 +189,34 @@ function showBooks() {
 
 function createBookHtml(book, index) {
     let html = '<div class="card">';
-    html += '<h2>' + book.name + '</h2>';
-    html += '<div class="cover"></div>';
-    html += '<p>Author: ' + book.author + '</p>';
-    html += '<p>Jahr: ' + book.publishedYear + '</p>';
-    html += '<p>Genre: ' + book.genre + '</p>';
-    html += '<p>Preis: ' + formatPrice(book.price) + '</p>';
-    html += '<p>Likes: <span id="likeCount-' + index + '">' + book.likes + '</span>';
-    html += ' <span id="heart-' + index + '" class="heart ' + (book.liked ? 'liked' : '') + '"';
-    html += ' onclick="toggleLike(' + index + ')">❤</span></p>';
-    html += '<div class="comments"><h3>Kommentare:</h3>';
-    html += '<div id="comments-' + index + '"></div>';
+    html += '<div class="card-header">' + book.name + '</div>';
+    html += '<div class="card-hero"><div class="cover"></div></div>';
+
+    html += '<div class="card-section price-row">';
+    html += '<span class="price">' + formatPrice(book.price) + '</span>';
+    html += '<span class="likes">';
+    html += '<span id="likeCount-' + index + '">' + book.likes + '</span>';
+    html += ' <span id="heart-' + index + '" class="heart ' +
+        (book.liked ? 'liked' : '') +
+        '" onclick="toggleLike(' + index + ')">❤</span>';
+    html += '</span></div>';
+
+    html += '<div class="card-section meta">';
+    html += '<div><span class="label">Author</span><span class="value">' + book.author + '</span></div>';
+    html += '<div><span class="label">Erscheinungsjahr</span><span class="value">' + book.publishedYear + '</span></div>';
+    html += '<div><span class="label">Genre</span><span class="value">' + book.genre + '</span></div>';
+    html += '</div>';
+
+    html += '<div class="divider"></div>';
+
+    html += '<div class="card-section comments">';
+    html += '<h3>Kommentare:</h3>';
+    html += '<div id="comments-' + index + '" class="comment-list"></div>';
     html += '<input id="commentInput-' + index + '" type="text" placeholder="Schreibe dein Kommentar...">';
     html += '<button onclick="addComment(' + index + ')">Senden</button>';
-    html += '</div></div>';
+    html += '</div>';
+
+    html += '</div>';
     return html;
 }
 
