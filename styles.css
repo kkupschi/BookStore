@@ -246,6 +246,40 @@ main {
     border-radius: 5px;
 }
 
+.commentInputRow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 6px;
+}
+
+.commentInputRow input {
+    flex: 1;
+}
+
+.sendBtn {
+    padding: 6px;
+    border: none;
+    border-radius: 8px;
+    background: #1a6a86;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+}
+
+.sendBtn:hover {
+    background: #2182a6;
+}
+
+.sendBtn .sendIcon {
+    width: 15px;
+    height: 15px;
+    display: block;
+}
+
 /* Responsive */
 @media (max-width: 320px) {
     main {

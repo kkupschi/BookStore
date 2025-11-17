@@ -47,13 +47,15 @@ function createBookHtml(book, index) {
 
         <div id="comments-${index}" class="comment-list"></div>
 
-        <input id="commentInput-${index}"
-               type="text"
-               placeholder="Schreibe dein Kommentar..." />
+        <div class="commentInputRow">
+        <input id="commentInput-${index}" 
+                type="text" 
+                placeholder="Schreibe dein Kommentar..." />
 
-        <button onclick="addComment(${index})">Senden</button>
-      </div>
-
+        <button class="sendBtn" onclick="addComment(${index})">
+            <img src="img/papierflieger.png" alt="Send" class="sendIcon">
+        </button>
+        </div>
     </div>
   `;
 }
