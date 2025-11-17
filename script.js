@@ -13,36 +13,49 @@ function showBooks() {
 }
 
 function createBookHtml(book, index) {
-    let html = '<div class="card">';
-    html += '<div class="card-header">' + book.name + '</div>';
-    html += '<div class="card-hero"><div class="cover"></div></div>';
+    return /*html*/ `
+    <div class="card">
 
-    html += '<div class="card-section price-row">';
-    html += '<span class="price">' + formatPrice(book.price) + '</span>';
-    html += '<span class="likes">';
-    html += '<span id="likeCount-' + index + '">' + book.likes + '</span>';
-    html += ' <span id="heart-' + index + '" class="heart ' +
-        (book.liked ? 'liked' : '') +
-        '" onclick="toggleLike(' + index + ')">❤</span>';
-    html += '</span></div>';
+      <div class="card-header">${book.name}</div>
 
-    html += '<div class="card-section meta">';
-    html += '<div><span class="label">Author</span><span class="value">' + book.author + '</span></div>';
-    html += '<div><span class="label">Erscheinungsjahr</span><span class="value">' + book.publishedYear + '</span></div>';
-    html += '<div><span class="label">Genre</span><span class="value">' + book.genre + '</span></div>';
-    html += '</div>';
+      <div class="card-hero">
+        <div class="cover"></div>
+      </div>
 
-    html += '<div class="divider"></div>';
+      <div class="card-section price-row">
+        <span class="price">${formatPrice(book.price)}</span>
+        <span class="likes">
+          <span id="likeCount-${index}">${book.likes}</span>
+          <span id="heart-${index}"
+                class="heart ${book.liked ? "liked" : ""}"
+                onclick="toggleLike(${index})">
+            ❤
+          </span>
+        </span>
+      </div>
 
-    html += '<div class="card-section comments">';
-    html += '<h3>Kommentare:</h3>';
-    html += '<div id="comments-' + index + '" class="comment-list"></div>';
-    html += '<input id="commentInput-' + index + '" type="text" placeholder="Schreibe dein Kommentar...">';
-    html += '<button onclick="addComment(' + index + ')">Senden</button>';
-    html += '</div>';
+      <div class="card-section meta">
+        <div><span class="label">Author</span><span class="value">${book.author}</span></div>
+        <div><span class="label">Erscheinungsjahr</span><span class="value">${book.publishedYear}</span></div>
+        <div><span class="label">Genre</span><span class="value">${book.genre}</span></div>
+      </div>
 
-    html += '</div>';
-    return html;
+      <div class="divider"></div>
+
+      <div class="card-section comments">
+        <h3>Kommentare:</h3>
+
+        <div id="comments-${index}" class="comment-list"></div>
+
+        <input id="commentInput-${index}"
+               type="text"
+               placeholder="Schreibe dein Kommentar..." />
+
+        <button onclick="addComment(${index})">Senden</button>
+      </div>
+
+    </div>
+  `;
 }
 
 function toggleLike(index) {
